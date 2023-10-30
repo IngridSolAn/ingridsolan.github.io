@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import ParticlesBg from "particles-bg";
 
 /**
- * 
- * If you want to remove the animation from header, you just need to remove de ParticlesBg component. 
+ *
+ * If you want to remove the animation from header, you just need to remove de ParticlesBg component.
  * If you want to change the type of animation, check this documentation alll types availables: https://github.com/lindelof/particles-bg
  */
 
 export default function Header(props) {
-    
+
     if (props.data) {
         var project = props.data.project;
         var github = props.data.github;
@@ -22,7 +22,7 @@ export default function Header(props) {
 
     return (
         <header id="home">
-            <ParticlesBg type="circle" bg={true} />
+            <ParticlesBg type="custom" bg={true} />
             <nav id="nav-wrap">
                 <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
                 <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>

@@ -14,12 +14,9 @@
             "city": "(Your City)",
             "state": "(Your State)"
         },
-        "website": "https://github.com/",
-        "resumedownload": "https://github.com/",
-        "social": [
-            {
+                    {
                 "name": "facebook",
-                "url": "https://github.com/",
+                "url": "https://facebook.com/ingridsolan",
                 "className": "fa fa-facebook"
             },
             {
@@ -34,7 +31,7 @@
             },
             {
                 "name": "instagram",
-                "url": "http://instagram.com/",
+                "url": "http://instagram.com/donapeppaoficial",
                 "className": "fa fa-instagram"
             },
             {
@@ -45,13 +42,13 @@
         ]
     },
     "resume": {
-        "skillmessage": "Here you can create a short write-up of your skills to show off to employers",
+        "skillmessage": "Tente de novo. Fracasse de novo. Mas fracasse melhor",
         "education": [
             {
-                "school": "University?",
-                "degree": "Masters in Beer tasting",
-                "graduated": "April 2007",
-                "description": "Describe your experience at school, what you learned, what useful skills you have acquired etc."
+                "school": "Universidade Cruzeiro do Sul",
+                "degree": "PERIOR DE TECNOLOGIA EM GESTÃO DA TECNOLOGIA DA INFORMAÇÃO",
+                "graduated": "Dezembro 2023",
+                "description": "A melhor forma de prever o futuro é criá-lo."
             },
             {
                 "school": "Hogwarts School of Witchcraft and Wizardry",
