@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ResolveAI · IA generativa a serviço do suporte de TI</title>
+  <meta name="description" content="Entenda como o ResolveAI usa o histórico de chamados, busca semântica e IA para apoiar analistas de suporte no GLPI.">
+  <meta property="og:title" content="ResolveAI · IA generativa a serviço do suporte de TI">
+  <meta property="og:description" content="Do histórico de chamados a sugestões de diagnóstico e testes, sempre com validação do analista.">
+  <meta property="og:image" content="https://ingridsolan.com.br/img/assistente-expandido.png">
+  <link rel="icon" href="../img/robo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="resolveai.css">
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="../">Ingrid Sol'An</a>
+      <nav aria-label="Seções do ResolveAI">
+        <a href="#problema">O problema</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#rag">RAG</a>
+        <a href="#seguranca">Segurança</a>
+        <a class="btn btn-small" href="https://github.com/IngridSolAn/ResolveAi">Código</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero project-hero" id="topo">
+      <div class="wrap hero-inner">
+        <div class="project-hero-text">
+          <p class="eyebrow">Inteligência artificial + suporte de TI</p>
+          <h1>O histórico de chamados resolvidos, transformado em ajuda na hora certa.</h1>
+          <p class="lead">O <strong>ResolveAI</strong> encontra chamados parecidos com o atual e sugere diagnóstico, nível de confiança e passos de teste direto na tela do GLPI. A decisão continua sempre com o analista.</p>
+          <div class="cta">
+            <a class="btn" href="#como-funciona">Entender como funciona</a>
+            <a class="btn btn-ghost" href="https://github.com/IngridSolAn/ResolveAi">Ver o código</a>
+          </div>
+        </div>
+        <div class="project-robot" aria-hidden="true">
+          <img src="../img/robo.svg" alt="" width="180" height="220">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="problema">
+      <div class="wrap">
+        <h2>O problema</h2>
+        <p class="section-lead">Equipes de suporte resolvem problemas semelhantes repetidamente, mas o conhecimento costuma ficar espalhado em chamados antigos.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>Chamados repetitivos</h3>
+            <p>A solução para problemas como Wi-Fi instável ou impressoras pode já existir no histórico.</p>
+          </article>
+          <article class="card">
+            <h3>Tempo procurando</h3>
+            <p>Uma busca manual por palavras-chave pode não encontrar casos descritos de outra forma.</p>
+          </article>
+          <article class="card">
+            <h3>Conhecimento difícil de reaproveitar</h3>
+            <p>O histórico existe, mas nem sempre é fácil localizar a experiência registrada pela equipe.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="como-funciona">
+      <div class="wrap">
+        <h2>Como funciona, passo a passo</h2>
+        <p class="section-lead">A busca semântica recupera casos relevantes; a IA usa esses casos para elaborar uma sugestão que o analista avalia.</p>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <div>
+              <h3>O histórico é preparado</h3>
+              <p>Chamados solucionados ou fechados, suas soluções e acompanhamentos são lidos para formar uma base de conhecimento. A integração ao banco do GLPI usa uma conta somente leitura.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <div>
+              <h3>O analista abre um chamado</h3>
+              <p>No GLPI, o plugin verifica a sessão, o perfil de analista e a permissão de leitura antes de solicitar a análise.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <div>
+              <h3>Casos semelhantes são encontrados</h3>
+              <p>O título e a descrição são comparados por significado com o histórico indexado no ChromaDB. A busca respeita a entidade do chamado e descarta resultados pouco relevantes.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">4</span>
+            <div>
+              <h3>A IA prepara uma sugestão estruturada</h3>
+              <p>Com o chamado e os casos relevantes como contexto, a IA separa evidências de hipóteses, cita os casos usados e sugere testes seguros. A resposta é validada em um formato consistente.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">5</span>
+            <div>
+              <h3>O analista decide</h3>
+              <p>O assistente apresenta diagnóstico, confiança e próximos passos. O analista verifica as informações e pode avaliar se a sugestão ajudou.</p>
+            </div>
+          </li>
+        </ol>
+        <figure class="project-shot">
+          <img src="../img/assistente-expandido.png" alt="Assistente ResolveAI aberto ao lado de um chamado do GLPI, exibindo diagnóstico, confiança e passos de teste." width="1280" height="880" loading="lazy">
+          <figcaption>Exemplo do assistente do ResolveAI integrado ao GLPI.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="rag">
+      <div class="wrap two-col">
+        <div>
+          <h2>O que é RAG?</h2>
+          <p><strong>RAG</strong> (_Retrieval-Augmented Generation_, ou geração aumentada por recuperação) permite que a IA consulte informações relevantes antes de responder.</p>
+          <p>Em vez de depender apenas do que aprendeu durante o treinamento, o modelo recebe casos semelhantes da base da própria equipe. Assim, pode apoiar a análise com referências ao histórico disponível.</p>
+        </div>
+        <div class="card compare">
+          <div>
+            <h3>Busca por palavra</h3>
+            <p>Termos diferentes podem esconder que dois chamados descrevem o mesmo sintoma.</p>
+          </div>
+          <div>
+            <h3>Busca por significado</h3>
+            <p>Textos com palavras diferentes podem ser aproximados pelo sentido e comparados com casos resolvidos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="respostas">
+      <div class="wrap">
+        <h2>O que a sugestão apresenta</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Diagnóstico e evidências</h3>
+            <p>Uma hipótese acompanhada dos fatos do chamado e das referências relevantes encontradas no histórico.</p>
+          </article>
+          <article class="card">
+            <h3>Nível de confiança</h3>
+            <p>Um indicador que considera a qualidade dos dados e a semelhança dos casos recuperados.</p>
+          </article>
+          <article class="card">
+            <h3>Passos de teste</h3>
+            <p>Verificações sugeridas para o analista avaliar, sem afirmar que já foram executadas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="seguranca">
+      <div class="wrap">
+        <h2>Segurança, privacidade e confiança</h2>
+        <ul class="checks">
+          <li><strong>A IA sugere, não decide.</strong> Não altera, responde nem fecha chamados.</li>
+          <li><strong>Isolamento por entidade.</strong> A busca de casos semelhantes respeita a entidade do chamado.</li>
+          <li><strong>Acesso de analistas.</strong> O plugin verifica sessão, perfil e permissão de leitura.</li>
+          <li><strong>Dados locais por padrão.</strong> Com Ollama, o modelo pode rodar na infraestrutura da equipe; Claude é uma opção configurável.</li>
+          <li><strong>Telemetria sem texto dos chamados.</strong> O painel acompanha métricas e avaliações sem armazenar o conteúdo dos tickets.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section alt" id="tecnologias">
+      <div class="wrap">
+        <h2>Tecnologias</h2>
+        <ul class="pills">
+          <li>Python</li><li>FastAPI</li><li>Pydantic</li><li>ChromaDB</li><li>Ollama</li><li>Claude</li><li>GLPI</li><li>PHP</li><li>Docker Compose</li>
+        </ul>
+        <div class="project-links">
+          <a class="btn" href="https://github.com/IngridSolAn/ResolveAi">Ver o projeto no GitHub</a>
+          <a class="btn btn-ghost" href="../">Voltar ao portfólio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>ResolveAI · idealizado e desenvolvido por Ingrid Sol'An · <a href="https://github.com/IngridSolAn/ResolveAi">código-fonte no GitHub</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
